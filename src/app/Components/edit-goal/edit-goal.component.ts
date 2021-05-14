@@ -64,5 +64,4 @@ export class EditGoalComponent implements OnInit {
         console.log(error);
       });
     }
-  }
 }
