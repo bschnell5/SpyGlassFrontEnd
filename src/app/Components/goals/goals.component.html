@@ -1,43 +1,13 @@
-<!-- <mat-accordion>
-    <mat-expansion-panel>
-      <mat-expansion-panel-header>
-        <mat-panel-title>
-          Personal Goals
-        </mat-panel-title>
-        <mat-panel-description>
-          Type your goals
-        </mat-panel-description>
-      </mat-expansion-panel-header>
-  
-      <mat-form-field>
-        <input matInput placeholder="Goals Name">
-      </mat-form-field>
-  
-      <mat-form-field>
-        <input matInput placeholder="Description">
-      </mat-form-field>
-    </mat-expansion-panel>
-    <mat-expansion-panel (opened)="panelOpenState = true"
-                         (closed)="panelOpenState = false">
-      <mat-expansion-panel-header>
-        <mat-panel-title>
-          Self aware panel
-        </mat-panel-title>
-        <mat-panel-description>
-          Currently I am {{panelOpenState ? 'open' : 'closed'}}
-        </mat-panel-description>
-      </mat-expansion-panel-header>
-      <p>I'm visible because I am open</p>
-    </mat-expansion-panel>
-  </mat-accordion> -->
   <h4>Goal List</h4>
-
   <mat-form-field>
     <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
   </mat-form-field>
 
-  <table mat-table [dataSource]="goals" class="mat-elevation-z8">
+  <div class="button">
+  <a mat-button color="primary" [routerLink]="'/goals/add'" > Add Goal</a>
+  </div>
 
+  <table mat-table [dataSource]="goals" class="mat-elevation-z8">
     <!--- Note that these columns can be defined in any order.
           The actual rendered columns are set as a property on the row definition" -->
   
@@ -53,31 +23,47 @@
       <td mat-cell *matCellDef="let currentGoal"> {{currentGoal.name}} </td>
     </ng-container>
   
-   <!-- 
-    <ng-container matColumnDef="zip">
-      <th mat-header-cell *matHeaderCellDef> Weight </th>
-      <td mat-cell *matCellDef="let currentEmployee"> {{currentEmployee.zip}} </td>
-    </ng-container>
   
-   
+    <ng-container matColumnDef="description">
+      <th mat-header-cell *matHeaderCellDef> Description </th>
+      <td mat-cell *matCellDef="let currentGoal"> {{currentGoal.description}} </td>
+    </ng-container>
+    <ng-container matColumnDef="startDate">
+        <th mat-header-cell *matHeaderCellDef> Start Date </th>
+        <td mat-cell *matCellDef="let currentGoal"> {{currentGoal.startdate}} </td>
+      </ng-container>
+      <ng-container matColumnDef="targetDate">
+        <th mat-header-cell *matHeaderCellDef> End Date </th>
+        <td mat-cell *matCellDef="let currentGoal"> {{currentGoal.targetdate}} </td>
+      </ng-container>
+      <ng-container matColumnDef="currentSaving">
+        <th mat-header-cell *matHeaderCellDef> Current Savings </th>
+        <td mat-cell *matCellDef="let currentGoal"> {{currentGoal.currentsaving | currency:'USD'}}  </td>
+      </ng-container>
+      <ng-container matColumnDef="targetDollar">
+        <th mat-header-cell *matHeaderCellDef> Target Dollar </th>
+        <td mat-cell *matCellDef="let currentGoal"> {{currentGoal.targetdollar | currency:'USD'}} </td>
+      </ng-container>
+  
+   <!-- 
     <ng-container matColumnDef="address">
       <th mat-header-cell *matHeaderCellDef> Address </th>
       <td mat-cell *matCellDef="let currentEmployee"> {{currentEmployee.address}} </td>
     </ng-container>
     -->
-
     <ng-container matColumnDef="active">
       <th mat-header-cell *matHeaderCellDef> Status </th>
       <td mat-cell *matCellDef="let currentGoal"> {{currentGoal.active}} </td>
     </ng-container>
-
-    <ng-container matColumnDef="action">
-      <mat-header-cell *matHeaderCellDef> Action </mat-header-cell>
-      <mat-cell *matCellDef="let currentEmployee">
-        <a routerLink="/employees/{{ currentEmployee.employeeid }}"> Edit Employee </a>
+    <ng-container matColumnDef="edit">
+      <mat-header-cell *matHeaderCellDef> Edit Goal </mat-header-cell>
+      <mat-cell *matCellDef="let currentGoal">
+        <a routerLink="/goals/{{ currentGoal.goalid }}"> Edit Goal </a>
       </mat-cell>
     </ng-container>
+    <br>
+    
   
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-  </table>  
+  </table>

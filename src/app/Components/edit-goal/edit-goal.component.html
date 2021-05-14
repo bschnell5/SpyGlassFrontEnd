@@ -1,0 +1,203 @@
+<div class="goal-edit-container" style="width: 400px; margin: auto;">
+
+<div *ngIf="currentGoal" class="edit-form">
+      <h4>Your Goal</h4>
+      <form>
+        <div class="form-group">
+            <label for="goalid">Goal #</label>
+            <input
+              type="text"
+              class="form-control"
+              id="goalid"
+              [value]="currentGoal.goalid"
+              [(ngModel)]="currentGoal.goalid"
+              name="goalid"
+              disabled
+            />
+        </div>
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input
+            type="text"
+            class="form-control"
+            id="name"
+            [value]="currentGoal.name"
+            [(ngModel)]="currentGoal.name"
+            name="name"
+          />
+        </div>
+        <div class="form-group">
+            <label for="address">Description</label>
+            <input
+              type="text"
+              class="form-control"
+              id="description"
+              [(ngModel)]="currentGoal.description"
+              name="description"
+            />
+          </div>
+          <div class="form-group">
+            <label for="startDate">Start Date</label>
+            <input
+              type="date"
+              class="form-control"
+              id="startDate"
+              [(ngModel)]="currentGoal.startDate"
+              value="currentGoal.startDate"
+              name="startDate"
+            />
+          </div>
+          <div class="form-group">
+            <label for="targetDate">End Date</label>
+            <input
+              type="date"
+              class="form-control"
+              id="targetDate"
+              [(ngModel)]="currentGoal.targetdate"
+              value="currentGoal.targetDate"
+              name="endDate"
+            />
+          </div>
+          <div class="form-group">
+            <label for="targetDollar">Savings Goal</label>
+            <input
+              type="text"
+              class="form-control"
+              id="targetDollar"
+              [(ngModel)]="currentGoal.targetDollar"
+              name="targetDollar"
+            />
+          </div>
+  
+        <div class="form-group">
+          <label><strong>Status:</strong></label>
+          {{ currentGoal.active ? "Active" : "Inactive" }}
+        </div>
+      </form>
+
+      <div class="button">
+        <a mat-button color="primary" (click)="updateGoal()" > Save Update</a>
+    </div>
+
+
+    <div *ngIf="!currentGoal">
+        <br />
+        <p>Cannot access this Goal...</p>
+    </div>
+</div>
+</div>
+
+<!-- <div  *ngIf="currentGoal" class="container edit-form">
+    
+    <mat-form-field appearance="fill">
+        <mat-label for="goalid">ID</mat-label>
+        <input  matInput 
+                disabled
+                name="goalid"
+                id="goalid"
+                [(ngModel)]="currentGoal.goalid"
+        >
+    </mat-form-field>
+
+    
+    <mat-form-field appearance="fill">
+        <mat-label for="name">Name</mat-label>
+        <input  matInput
+                name="name"
+                id="name"
+                [(ngModel)]="currentGoal.name"
+        >
+    </mat-form-field> -->
+    <!-- <mat-form-field hintLabel="Max 10 characters">
+        <mat-label>Name </mat-label>
+        <input  matInput 
+                #input 
+                maxlength="10" 
+                [formControl]="name" 
+                [(ngModel)]="currentGoal.name" 
+                required>
+        <mat-hint align="end">{{input.value?.length || 0}}/10</mat-hint>
+      </mat-form-field> -->
+
+    <!-- <mat-form-field appearance="fill">
+    <mat-label>Select</mat-label>
+    <mat-select>
+        <mat-option value="one">First option</mat-option>
+        <mat-option value="two">Second option</mat-option>
+    </mat-select>
+    </mat-form-field> -->
+
+  
+    <!-- <mat-form-field appearance="fill">
+        <mat-label>Description</mat-label>
+        <input  matInput
+                name="description"
+                id="description"
+                [(ngModel)]="currentGoal.description"
+        >
+    </mat-form-field>
+
+    
+    <mat-form-field appearance="fill">
+        <mat-label>Start Date</mat-label>
+        <input  matInput 
+                disabled
+                name="startDate"
+                type="date"
+                id="startDate"
+                [(ngModel)]="currentGoal.startdate"
+        >
+    </mat-form-field>
+
+    
+    <mat-form-field appearance="fill">
+        <mat-label>End Date</mat-label>
+        <input  matInput
+                name="endDate"
+                type="date"
+                id="endDate"
+                [(ngModel)]="currentGoal.targetdate"
+        >
+    </mat-form-field>
+
+    
+    <mat-form-field appearance="fill">
+        <mat-label>Current Saving</mat-label>
+        <input  matInput
+                name="targetdollar"
+                id="targetdollar"
+                [(ngModel)]="currentGoal.targetdollar"
+        >
+    </mat-form-field>
+
+ 
+    <mat-form-field appearance="fill">
+        <mat-label>Savings Goal</mat-label>
+        <input  matInput
+                name="currentsaving"
+                id="currentsaving"
+                [(ngModel)]="currentGoal.currentsaving"
+        >
+    </mat-form-field>
+
+   
+    <mat-form-field appearance="fill">
+        <mat-label>Active</mat-label>
+        <input  matInput
+                name="active"
+                id="active"
+                [(ngModel)]="currentGoal.active"
+        >
+    </mat-form-field>
+
+    
+    <div class="button">
+        <a mat-button color="primary" (click)="updateGoal()" > Save Update</a>
+    </div>
+
+
+    <div *ngIf="!currentGoal">
+        <br />
+        <p>Cannot access this Goal...</p>
+      </div>
+</div> -->
