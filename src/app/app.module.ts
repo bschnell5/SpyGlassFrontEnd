@@ -12,6 +12,9 @@ import { PaymentComponent } from './Components/payment/payment.component';
 import { UserModule } from './user/user.module';
 import { BlogComponent } from './Components/blog/blog.component';
 import { HttpClientModule } from '@angular/common/http';
+import { AddGoalComponent } from './Components/add-goal/add-goal.component';
+import { EditGoalComponent } from './Components/edit-goal/edit-goal.component';
+import { ProgressComponent } from './Components/progress/progress.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +23,10 @@ import { HttpClientModule } from '@angular/common/http';
     NavbarComponent,
     GoalsComponent,
     PaymentComponent,
-    BlogComponent
+    BlogComponent,
+    AddGoalComponent,
+    EditGoalComponent,
+    ProgressComponent
   ],
   imports: [
     BrowserModule,

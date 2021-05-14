@@ -4,10 +4,10 @@ export class Goal {
     goalid?: number;
     userId: User;
     name: string;
-    description: any; 
+    description: string; 
     startDate: Date;
     targetDate: Date;
-    targetDollar: number;
     currentSaving: number;
+    targetDollar: number;
     active: boolean;
 }
