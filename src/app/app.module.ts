@@ -14,6 +14,10 @@ import { BlogComponent } from './Components/blog/blog.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AddGoalComponent } from './Components/add-goal/add-goal.component';
 import { EditGoalComponent } from './Components/edit-goal/edit-goal.component';
+<<<<<<< HEAD
+=======
+import { ProgressComponent } from './Components/progress/progress.component';
+>>>>>>> 55cd757db9eee402a351d701884c99c9c1984971
 
 @NgModule({
   declarations: [
@@ -24,7 +28,12 @@ import { EditGoalComponent } from './Components/edit-goal/edit-goal.component';
     PaymentComponent,
     BlogComponent,
     AddGoalComponent,
+<<<<<<< HEAD
     EditGoalComponent
+=======
+    EditGoalComponent,
+    ProgressComponent
+>>>>>>> 55cd757db9eee402a351d701884c99c9c1984971
   ],
   imports: [
     BrowserModule,
