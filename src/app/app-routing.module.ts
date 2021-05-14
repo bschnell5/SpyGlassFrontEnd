@@ -14,17 +14,11 @@ const routes: Routes = [
   { path: 'blog', component: BlogComponent},
   { path: 'login', component: LoginComponent},
   { path:'goals', component:GoalsComponent},
-<<<<<<< HEAD
-  { path:'goals/add', component: AddGoalComponent},
-  { path:'goals/:id', component: EditGoalComponent},
-  { path:'payment', component:PaymentComponent}
-=======
   { path: 'goals/add', component: AddGoalComponent },
   { path: 'goals/:id', component: EditGoalComponent},
   { path:'payment', component: PaymentComponent},
   { path: 'progress', component: ProgressComponent}
 
->>>>>>> 55cd757db9eee402a351d701884c99c9c1984971
 
 ];
 
