@@ -30,8 +30,8 @@ export class AddGoalComponent implements OnInit {
       description: this.goal.description,
       startdate: this.goal.startdate,
       targetdate: this.goal.targetdate,
-      currentsaving: this.goal.currentsaving,
       targetdollar: this.goal.targetdollar,
+      currentsaving: this.goal.currentsaving,
       active: this.goal.active
     };
 
@@ -57,8 +57,8 @@ export class AddGoalComponent implements OnInit {
       description: '',
       startdate: '',
       targetdate: '',
-      currentsaving: null,
       targetdollar: null,
+      currentsaving: null,
       active: false
     };
   }
