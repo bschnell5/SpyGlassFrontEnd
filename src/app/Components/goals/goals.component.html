@@ -48,6 +48,10 @@
         <th mat-header-cell *matHeaderCellDef> Target Dollar </th>
         <td mat-cell *matCellDef="let currentGoal"> {{currentGoal.targetdollar | currency:'USD'}} </td>
       </ng-container>
+
+
+  
+      
   
    <!-- 
     <ng-container matColumnDef="address">
@@ -74,18 +78,20 @@
     <ng-container matColumnDef="progress">
         <mat-header-cell *matHeaderCellDef> Goal's Progress </mat-header-cell>
         <mat-cell *matCellDef="let currentGoal">
-          <a routerLink="/progress/{{ currentGoal.goalid }}"> See Your Progress </a>
+          <a routerLink="/progress"> See Your Progress </a>
         </mat-cell>
       </ng-container>
       <br>
+
       
     <ng-container matColumnDef="payment">
         <mat-header-cell *matHeaderCellDef> Add Payment </mat-header-cell>
         <mat-cell *matCellDef="let currentGoal">
-          <a routerLink="/payment/{{ currentGoal.goalid }}"> Add Payment for Goal </a>
+          <a routerLink="/payment"> Add Payment for Goal </a>
         </mat-cell>
       </ng-container>
     </div>
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-  </table>
+
+  </table>  

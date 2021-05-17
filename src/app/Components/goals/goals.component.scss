@@ -7,5 +7,41 @@ table {
   }
 
 .button {
-  text-align: center;
+    text-align:center;
+}
+
+.field{
+    min-height: 120%;
+}
+
+td{
+    height: 100px;
+}
+
+a{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.rating-list {
+	li {
+    font-size: 20px;
+		float: right;
+		color: #ddd;
+		padding: 10px 5px;
+		&:hover {
+			color: #ffd700;
+			~ {
+				li {
+					color: #ffd700;
+				}
+			}
+		}
+	}
+	li.selected {
+		color: #ffd700;
+	}
+	display: inline-block;
+	list-style: none;
 }

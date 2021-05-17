@@ -1,9 +1,17 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
-import { Goal } from 'src/app/Models/goal';
 import { GoalService } from 'src/app/Service/goal.service';
+
+
+export interface Goals {
+  name: string;
+  description: String;
+  currentsaving: number;
+
+}
+
 
 @Component({
   selector: 'app-goals',
@@ -12,30 +20,30 @@ import { GoalService } from 'src/app/Service/goal.service';
 })
 export class GoalsComponent implements OnInit {
 
+  goals: Goals[] = [];
   panelOpenState: boolean = false;
-  goals = [];
   currentGoal = null;
   currentIndex = -1;
   active = null;
 
+   
   page = 1;
   count = 0;
   pageSize = 3;
   pageSizes = [3, 6, 9];
 
-  displayedColumns: string[] = ['goalid', 'name', 'description', 'startDate', 'targetDate', 'targetDollar', 'currentSaving', 'edit'];
-  dataSource: MatTableDataSource<Goal>;
+  displayedColumns: string[] = ['goalid', 'name', 'description', 'startDate', 'endDate', 'currentsaving', 'targetdollar', 'edit', 'progress', 'payment'];
+  dataSource: MatTableDataSource<Goals>;
   
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
-  constructor(private goalService: GoalService) { 
-    this.dataSource = new MatTableDataSource(this.currentGoal)
-  }
+  constructor(private goalService: GoalService) {}
 
   ngOnInit(): void {
     this.retrieveGoals();
-  }
+    }
+
   
   applyFilter(filterValue: string) {
     this.dataSource.filter = filterValue.trim().toLowerCase();
@@ -43,6 +51,8 @@ export class GoalsComponent implements OnInit {
     if (this.dataSource.paginator) {
       this.dataSource.paginator.firstPage();
     }
+    this.dataSource = new MatTableDataSource<Goals>();
+    this.dataSource.paginator = this.paginator;
   }
 
   retrieveGoals(): void {
@@ -115,4 +125,7 @@ export class GoalsComponent implements OnInit {
         });
  
     }
+
+    
+
 }

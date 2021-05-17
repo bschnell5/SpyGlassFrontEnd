@@ -17,15 +17,14 @@ export class AddGoalComponent implements OnInit {
     password: '123'
   };
 
-  goals = {
+  goal = {
     name: '',
     description: '',
-    startDate: '',
-    targetDate: '',
-    targetDollar: null,
-    currentSaving: null,
+    startdate: '',
+    targetdate: '',
+    targetdollar: null,
+    currentsaving: null,
     active: true,
-    user: this.user
   };
   submitted = false;
 
@@ -36,15 +35,16 @@ export class AddGoalComponent implements OnInit {
 
   saveGoal(): void {
     const data = {
-      name: this.goals.name,
-      description: this.goals.description,
-      startDate: this.goals.startDate,
-      targetDate: this.goals.targetDate,
-      currentSaving: this.goals.currentSaving,
-      targetDollar: this.goals.currentSaving,
-      active: this.goals.active,
-      user: this.user
+      name: this.goal.name,
+      description: this.goal.description,
+      startdate: this.goal.startdate,
+      targetdate: this.goal.targetdate,
+      currentsaving: this.goal.currentsaving,
+      targetdollar: this.goal.targetdollar,
+      active: this.goal.active
     };
+
+    console.log(data);
 
     this.goalService.create(data)
       .subscribe(
@@ -55,21 +55,21 @@ export class AddGoalComponent implements OnInit {
         error => {
           console.log(error);
         });
+
+        this.newGoal();
   }
 
   newGoal(): void {
     this.submitted = false;
-    this.goals = {
+    this.goal = {
       name: '',
       description: '',
-      startDate: '',
-      targetDate: '',
-      currentSaving: null,
-      targetDollar: null,
-      active: false,
-      user: this.user
-    }
+      startdate: '',
+      targetdate: '',
+      currentsaving: null,
+      targetdollar: null,
+      active: false
+    };
   }
 
-  
 }
