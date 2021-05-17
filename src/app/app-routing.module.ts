@@ -5,8 +5,9 @@ import { BlogComponent } from './Components/blog/blog.component';
 import { EditGoalComponent } from './Components/edit-goal/edit-goal.component';
 import { GoalsComponent } from './Components/goals/goals.component';
 import { HomeComponent } from './components/home/home.component';
+import { PageNotFoundComponent } from './Components/home/page-not-found.component';
 import { PaymentComponent } from './Components/payment/payment.component';
-import { ProgressComponent } from './Components/progress/progress.component';
+import { ProgressGoalComponent } from './Components/progress-goal/progress-goal.component';
 import { LoginComponent } from './user/login.component';
 
 const routes: Routes = [
@@ -17,8 +18,8 @@ const routes: Routes = [
   { path: 'goals/add', component: AddGoalComponent },
   { path: 'goals/:id', component: EditGoalComponent},
   { path:'payment', component: PaymentComponent},
-  { path: 'progress', component: ProgressComponent}
-
+  { path:'progress', component: ProgressGoalComponent},
+  { path: '**', component: PageNotFoundComponent }
 
 ];
 

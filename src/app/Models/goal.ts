@@ -1,13 +1,10 @@
-import { User } from "../user/user";
-
-export class Goal {
+export interface Goal {
     goalid?: number;
-    userId: User;
     name: string;
     description: string; 
-    startDate: Date;
-    targetDate: Date;
-    currentSaving: number;
-    targetDollar: number;
+    startdate: Date;
+    targetdate: Date;
+    currentsaving: number;
+    targetdollar: number;
     active: boolean;
 }

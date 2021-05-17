@@ -14,7 +14,10 @@ import { BlogComponent } from './Components/blog/blog.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AddGoalComponent } from './Components/add-goal/add-goal.component';
 import { EditGoalComponent } from './Components/edit-goal/edit-goal.component';
-import { ProgressComponent } from './Components/progress/progress.component';
+import { ProgressGoalComponent } from './Components/progress-goal/progress-goal.component';
+import { StarComponent } from './Components/star/star.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
 
 @NgModule({
   declarations: [
@@ -26,7 +29,9 @@ import { ProgressComponent } from './Components/progress/progress.component';
     BlogComponent,
     AddGoalComponent,
     EditGoalComponent,
-    ProgressComponent
+    ProgressGoalComponent,
+    
+    StarComponent
   ],
   imports: [
     BrowserModule,
@@ -34,7 +39,8 @@ import { ProgressComponent } from './Components/progress/progress.component';
     AppRoutingModule,
     MaterialModule,
     UserModule,
-    NoopAnimationsModule
+    NoopAnimationsModule,
+    NgbModule
   ],
   providers: [HttpClientModule],
   bootstrap: [AppComponent]
