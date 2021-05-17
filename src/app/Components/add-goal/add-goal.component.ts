@@ -9,13 +9,13 @@ import { User } from 'src/app/user/user';
 })
 export class AddGoalComponent implements OnInit {
 
-  user: User = {
-    id: 5,
-    firstname: 'Kevin',
-    lastname: 'Bacon',
-    username: 'kbac',
-    password: '123'
-  };
+  // user: User = {
+  //   id: 5,
+  //   firstname: 'Kevin',
+  //   lastname: 'Bacon',
+  //   username: 'kbac',
+  //   password: '123'
+  // };
 
   goal = {
     name: '',
