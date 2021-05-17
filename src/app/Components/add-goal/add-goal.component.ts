@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { GoalService } from 'src/app/Service/goal.service';
+import { User } from 'src/app/user/user';
 
 @Component({
   selector: 'app-add-goal',
@@ -8,6 +9,14 @@ import { GoalService } from 'src/app/Service/goal.service';
 })
 export class AddGoalComponent implements OnInit {
 
+  user: User = {
+    id: 5,
+    firstname: 'Kevin',
+    lastname: 'Bacon',
+    username: 'kbac',
+    password: '123'
+  };
+
   goals = {
     name: '',
     description: '',
@@ -15,7 +24,8 @@ export class AddGoalComponent implements OnInit {
     targetDate: '',
     targetDollar: null,
     currentSaving: null,
-    active: true
+    active: true,
+    user: this.user
   };
   submitted = false;
 
@@ -32,7 +42,8 @@ export class AddGoalComponent implements OnInit {
       targetDate: this.goals.targetDate,
       currentSaving: this.goals.currentSaving,
       targetDollar: this.goals.currentSaving,
-      active: this.goals.active
+      active: this.goals.active,
+      user: this.user
     };
 
     this.goalService.create(data)
@@ -55,7 +66,8 @@ export class AddGoalComponent implements OnInit {
       targetDate: '',
       currentSaving: null,
       targetDollar: null,
-      active: false
+      active: false,
+      user: this.user
     }
   }
 

@@ -23,7 +23,7 @@ export class GoalsComponent implements OnInit {
   pageSize = 3;
   pageSizes = [3, 6, 9];
 
-  displayedColumns: string[] = ['goalid', 'name', 'description', 'startDate', 'targetDate', 'targetDollar', 'currentSaving', 'active', 'edit'];
+  displayedColumns: string[] = ['goalid', 'name', 'description', 'startDate', 'targetDate', 'targetDollar', 'currentSaving', 'edit'];
   dataSource: MatTableDataSource<Goal>;
   
   @ViewChild(MatPaginator) paginator: MatPaginator;

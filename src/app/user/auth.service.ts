@@ -13,11 +13,13 @@ export class AuthService {
         return !!this.currentUser;
     }
 
-    login(userName: string, password: string): void {
+    login(firstname: string, lastname: string, username: string, password: string): void {
         this.currentUser = {
             id: 2,
-            userName: userName,
-            isAdmin: false
+            firstname: firstname,
+            lastname: lastname,
+            username: username,
+            password: password
         };
     }
 
