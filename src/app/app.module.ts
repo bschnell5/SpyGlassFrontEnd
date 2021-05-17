@@ -17,6 +17,8 @@ import { EditGoalComponent } from './Components/edit-goal/edit-goal.component';
 import { ProgressGoalComponent } from './Components/progress-goal/progress-goal.component';
 import { StarComponent } from './Components/star/star.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { PageNotFoundComponent } from './Components/home/page-not-found.component';
+import { AddPaymentComponent } from './Components/add-payment/add-payment.component';
 
 
 @NgModule({
@@ -30,8 +32,10 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     AddGoalComponent,
     EditGoalComponent,
     ProgressGoalComponent,
+    PageNotFoundComponent,
     
-    StarComponent
+    StarComponent,
+          AddPaymentComponent
   ],
   imports: [
     BrowserModule,

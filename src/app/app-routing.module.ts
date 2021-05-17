@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AddGoalComponent } from './Components/add-goal/add-goal.component';
+import { AddPaymentComponent } from './Components/add-payment/add-payment.component';
 import { BlogComponent } from './Components/blog/blog.component';
 import { EditGoalComponent } from './Components/edit-goal/edit-goal.component';
 import { GoalsComponent } from './Components/goals/goals.component';
@@ -18,6 +19,7 @@ const routes: Routes = [
   { path: 'goals/add', component: AddGoalComponent },
   { path: 'goals/:id', component: EditGoalComponent},
   { path:'payment', component: PaymentComponent},
+  { path:'payment/add', component: AddPaymentComponent},
   { path:'progress', component: ProgressGoalComponent},
   { path: '**', component: PageNotFoundComponent }
 
