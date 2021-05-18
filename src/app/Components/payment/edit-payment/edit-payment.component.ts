@@ -11,6 +11,14 @@ export class EditPaymentComponent implements OnInit {
   currentPayment = null;
   msg = '';
   submitted = false;
+  monthlyPay: number;
+  monthlyTime:  number = 2629800000;
+  today = Date.now();
+  targetDatee: number = 21340800;
+  startAmt: number;
+  dreamAmt: number;
+  plan = false;
+
 
   constructor(
     private paymentService: PaymentService,
@@ -87,6 +95,19 @@ export class EditPaymentComponent implements OnInit {
           console.log(error);
         }
       );
+  }
+
+  calculatePay(): void {
+    this.plan = !this.plan;
+    console.log("Creating plan");
+    console.log(this.dreamAmt);
+    console.log(this.targetDatee)
+    var diff = (Number(this.today) - (this.targetDatee));
+    console.log(diff);
+    // console.log(this.targetDatee);
+    // console.log(this.today);
+    this.monthlyPay = (this.dreamAmt * 150) / (diff / this.monthlyTime);
+    console.log(this.monthlyPay);
   }
 
 

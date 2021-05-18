@@ -16,6 +16,7 @@ export class ProgressGoalComponent implements OnInit {
     this.retrieveGoals();
   }
 
+
   retrieveGoals(): void {
     this.goalService.getAll()
       .subscribe(data => {
@@ -27,7 +28,9 @@ export class ProgressGoalComponent implements OnInit {
       });
   }
   private displayProgress(current, total){
-    return Number(current / total) * 100 ;
+   
+    return Number(current / total) * 100;
+    
   }
 
 }

@@ -62,6 +62,29 @@
     <mat-icon>trending_up</mat-icon> Add Another Payment</button>
     <button mat-button style="color:rgb(89, 60, 194);"  routerLink="/payments"><mat-icon>trending_up</mat-icon>Your Payments</button>
 </div>    
+
+
+
+
+<div class="plan" *ngIf="!plan">
+  <h6>Find out our Recommend Saving Options!</h6>
+  <form>
+    <label for="dreamAmt">Target Goal Amount:</label><br>
+    <input type="number" placeholder="$0.00" id="dreamAmt" name="dreamAmt" [(ngModel)]="dreamAmt" value="0.00"><br>
+    <label for="targetDatee">Target Date :</label><br>
+    <input type="date" id="targetDatee"><br><br>
+    <button type="submit" value="Submit" (click)="calculatePay()">Calculate Plan</button>
+  </form> 
+</div>
+<div class="plan" *ngIf="plan">
+  <p>Calculated Plan:</p>
+  <P>
+      Recommended Weekly Savings: {{monthlyPay / 4 | currency:'USD'}} <br>
+      Recommended Bi-Weekly Savings: {{monthlyPay / 2 | currency:'USD'}}<br>
+      Recommended Monthly Savings: {{monthlyPay | currency:'USD'}}<br>
+      Recommended Quartly Savings: {{monthlyPay * 3 | currency:'USD'}}<br>
+  </P>
+</div>
   
  
     

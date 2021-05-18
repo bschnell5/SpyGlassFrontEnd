@@ -36,7 +36,7 @@ export class GoalsComponent implements OnInit {
   pageSize = 3;
   pageSizes = [3, 6, 9];
 
-  displayedColumns: string[] = ['goalid', 'name', 'description', 'startDate', 'targetDate', 'currentSaving', 'targetDollar', 'edit', 'progress', 'payment'];
+  displayedColumns: string[] = ['goalid', 'name', 'description', 'startDate', 'targetDate', 'currentSaving', 'targetdollar', 'edit', 'progress', 'payment'];
 
   
   @ViewChild(MatPaginator) paginator: MatPaginator;
