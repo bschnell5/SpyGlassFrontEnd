@@ -23,7 +23,6 @@ import { EditPaymentComponent } from './Components/payment/edit-payment/edit-pay
 import { PaymentService } from './Service/payment.service';
 import { GoalService } from './Service/goal.service';
 import { PageNotFoundComponent} from './Components/home/page-not-found.component';
-import { PlanComponent } from './Components/plan/plan.component'
 
 
 @NgModule({
@@ -40,9 +39,8 @@ import { PlanComponent } from './Components/plan/plan.component'
     PageNotFoundComponent,
     StarComponent,
     AddPaymentComponent,
-    EditPaymentComponent,
-    PlanComponent
-  ],
+    EditPaymentComponent
+    ],
   imports: [
     BrowserModule,
     HttpClientModule,
@@ -53,7 +51,7 @@ import { PlanComponent } from './Components/plan/plan.component'
     NoopAnimationsModule,
     NgbModule
   ],
-  providers: [HttpClientModule, PaymentService, GoalService],
+  providers: [HttpClientModule],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

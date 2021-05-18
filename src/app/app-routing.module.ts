@@ -9,7 +9,6 @@ import { PageNotFoundComponent } from './Components/home/page-not-found.componen
 import { AddPaymentComponent } from './Components/payment/add-payment/add-payment.component';
 import { EditPaymentComponent } from './Components/payment/edit-payment/edit-payment.component';
 import { PaymentComponent } from './Components/payment/payment.component';
-import { PlanComponent } from './Components/plan/plan.component';
 import { ProgressGoalComponent } from './Components/progress-goal/progress-goal.component';
 import { LoginComponent } from './user/login.component';
 
@@ -24,7 +23,6 @@ const routes: Routes = [
   { path:'payments/add', component: AddPaymentComponent},
   { path:'payments/:id', component: EditPaymentComponent},
   { path:'progress', component: ProgressGoalComponent},
-  { path:'plan', component: PlanComponent},
   { path: '**', component: PageNotFoundComponent }
 
 ];

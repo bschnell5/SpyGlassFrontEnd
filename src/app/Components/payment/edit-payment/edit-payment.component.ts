@@ -8,21 +8,9 @@ import { PaymentService } from 'src/app/Service/payment.service';
   styleUrls: ['./edit-payment.component.scss']
 })
 export class EditPaymentComponent implements OnInit {
-
-  today = Date.now();
-  monthlyPayment: number;
-  dayMonthly: number = 30;
   currentPayment = null;
   msg = '';
-  currentNumber = null;
-  firstOperand = null;
-  operator = null;
-  waitForDate = false;
-
-
   submitted = false;
-  targetamt: number;
-  targetDate: Date;
 
   constructor(
     private paymentService: PaymentService,
@@ -36,60 +24,6 @@ export class EditPaymentComponent implements OnInit {
     this.getPayment(this.route.snapshot.paramMap.get('id'));
 
   }
-
-  public getNumber(v: number){
-    console.log(v);
-    if(this.waitForDate)
-    {
-      this.targetamt = v;
-      this.waitForDate = false;
-    }else{
-      this.currentNumber === '0'? this.currentNumber = v: this.currentNumber += v;
-
-    }
-  }
-
-  getDecimal(){
-    if(!this.currentNumber.includes('.')){
-        this.currentNumber += '.'; 
-    }
-  }
-
-  private doCalculation(op , targetDate){
-    switch (op){
-      case '+':
-       let timespan = (Number(this.targetDate) - (this.today));
-      case '=':
-      this.monthlyPayment = this.targetamt / (timespan / this.dayMonthly);
-    }
-  }
-
-  public getOperation(op: string){
-    console.log(op);
-
-    if(this.firstOperand === null){
-      this.firstOperand = Number(this.currentNumber);
-
-    }else if(this.operator){
-      const result = this.doCalculation(this.today , (this.targetDate))
-      this.currentNumber = String(result);
-      this.firstOperand = result;
-    }
-    this.operator = op;
-    this.waitForDate = true;
-
-    console.log(this.firstOperand);
-
-  }
-
-  public clear(){
-    this.currentNumber = '0';
-    this.firstOperand = null;
-    this.operator = null;
-    this.waitForDate = false;
-  }
-
-
 
   getPayment(paymentid): void {
     this.paymentService.get(paymentid)

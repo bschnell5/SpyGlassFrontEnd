@@ -2,6 +2,19 @@
    
 <div class="formdiv" *ngIf=!submitted>
       <form action="payments" method="POST">
+          <!-- <mat-form-field class="example-full-width">
+              <mat-label>Name</mat-label>
+              <input matInput id="name" [(ngModel)]="goal.name" name="name">
+          </mat-form-field><br><br> -->
+
+          <mat-form-field appearance="fill">
+            <mat-label>Goal Name</mat-label>
+            <mat-select [(ngModel)]="payment.goal" name="goalid">
+              <mat-option *ngFor="let goal of goals" [value]="goal">
+                {{ goal.name }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field><br><br>
 
           <mat-form-field class="example-full-width">
               <mat-label>Deposit Amount</mat-label>
