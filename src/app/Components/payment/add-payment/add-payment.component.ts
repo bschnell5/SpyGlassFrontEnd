@@ -18,7 +18,7 @@ export class AddPaymentComponent implements OnInit {
 
   submitted = false;
 
-  constructor(private paymentService: PaymentService, private goalService: GoalService) { }
+  constructor(private paymentService: PaymentService) { }
 
   ngOnInit(): void {
   }

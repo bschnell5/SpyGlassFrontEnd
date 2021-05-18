@@ -1,4 +1,9 @@
   <h4>Goal List</h4>
+  <div class="input-group-append">
+    <button class="btn btn btn-info" type="button" (click)="activeGoals(true)"> Display Active </button>
+    <button class="btn btn btn-info" type="button" (click)="activeGoals(false)">  Display Inactive</button>
+    <button class="btn btn btn-info" type="button" (click)="refreshList()">  Display All </button>
+  </div>
 <div class="button">
 <a mat-button style="background-color:rgb(89, 60, 194);" [routerLink]="'/goals/add'" > Add Goal</a>
 

@@ -8,6 +8,8 @@ import { GoalService } from 'src/app/Service/goal.service';
 })
 export class AddGoalComponent implements OnInit {
 
+  
+
   goal = {
     name: '',
     description: '',

@@ -1,13 +1,16 @@
+import { DatePipe } from '@angular/common';
 import { Component, Input, OnInit, ViewChild } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { GoalService } from 'src/app/Service/goal.service';
 
 
-export interface Goals {
+export interface Goal {
   name: string;
   description: String;
+  targetdate: Date;
   currentsaving: number;
 
 }
@@ -20,8 +23,9 @@ export interface Goals {
 })
 export class GoalsComponent implements OnInit {
 
-  goals: Goals[] = [];
-  panelOpenState: boolean = false;
+  goals: Goal [] = [];
+  dataSource: MatTableDataSource<Goal>;
+  pipe: DatePipe;
   currentGoal = null;
   currentIndex = -1;
   active = null;
@@ -33,7 +37,12 @@ export class GoalsComponent implements OnInit {
   pageSizes = [3, 6, 9];
 
   displayedColumns: string[] = ['goalid', 'name', 'description', 'startDate', 'targetDate', 'currentsaving', 'targetdollar', 'edit', 'progress', 'payment'];
-  dataSource: MatTableDataSource<Goals>;
+
+  filterForm = new FormGroup({
+    fromDate: new FormControl(),
+    toDate: new FormControl(),
+  });
+
   
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
@@ -51,7 +60,7 @@ export class GoalsComponent implements OnInit {
     if (this.dataSource.paginator) {
       this.dataSource.paginator.firstPage();
     }
-    this.dataSource = new MatTableDataSource<Goals>();
+    this.dataSource = new MatTableDataSource<Goal>();
     this.dataSource.paginator = this.paginator;
   }
 

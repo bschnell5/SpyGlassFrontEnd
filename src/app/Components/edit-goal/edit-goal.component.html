@@ -69,15 +69,15 @@
             />
           </div>
   
-        <div class="form-group">
-          <label><strong>Status:</strong></label>
-          {{ currentGoal.active ? "Active" : "Inactive" }}
+        <div>
+          <label for="active"> Active</label> <br>                    
+          <input [(ngModel)]="currentGoal.active" name="active" id="active" type="checkbox"><br>
         </div>
-      </form>
+    </form>
 
       <div class="button">
         <a mat-button color="primary" (click)="updateGoal()" > Save Update</a>
-    </div>
+      </div>
 
 
     <div *ngIf="!currentGoal">

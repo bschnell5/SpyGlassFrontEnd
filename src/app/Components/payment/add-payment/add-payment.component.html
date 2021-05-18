@@ -1,11 +1,8 @@
-<h1 style="text-align:center">Add Your New Goal</h1>
+<h1 style="text-align:center">Add Your New Payment Plans</h1>
    
 <div class="formdiv" *ngIf=!submitted>
       <form action="payments" method="POST">
-          <!-- <mat-form-field class="example-full-width">
-              <mat-label>Name</mat-label>
-              <input matInput id="name" [(ngModel)]="goal.name" name="name">
-          </mat-form-field><br><br> -->
+
           <mat-form-field class="example-full-width">
               <mat-label>Deposit Amount</mat-label>
               <input matInput id="depositamt" [(ngModel)]="payment.depositamt" name="depositamt">

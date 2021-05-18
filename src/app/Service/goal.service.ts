@@ -9,7 +9,6 @@ const baseURL = 'http://localhost:9081/bks/goals';
 })
 export class GoalService {
 
-
   constructor(private http: HttpClient) { }
 
   getAll(): Observable<any> {

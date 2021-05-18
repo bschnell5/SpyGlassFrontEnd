@@ -1,1 +1,113 @@
-<p>edit-payment works!</p>
+
+<!-- <div class="formdiv">
+    <div *ngIf="currentPayment">
+          <form>
+                <label for="paymentid">Payment ID </label><br>
+                <input [(ngModel)]="currentPayment.paymentid" name="paymentid" id="paymentid" type="text" readonly><br>
+                    
+
+                <label for="depositamt"> Deposit Amount </label><br>                      
+                <input [(ngModel)]="currentPayment.depositamt" name="depositamt" id="depositamt" type="text"><br>
+
+                <label for="startdate"> New Start Date</label><br>                     
+                <input [(ngModel)]="currentPayment.startdate" name="startdate" id="startdate" type="text"><br>
+
+                <label for="depositfreq"> Deposit Frequency </label><br>                     
+                <input [(ngModel)]="currentPayment.depositfreq" name="depositfreq" id="depositfreq" type="text"><br>
+
+
+                <label for="active"> Active</label> <br>                    
+                <input [(ngModel)]="currentPayment.active" name="active" id="active" type="checkbox"><br>
+
+                <button type="submit" (click)="updatePayment()" > Update Payment</button>
+
+                <br><br>
+            </form>
+  </div>
+             -->
+
+<div *ngIf=!submitted>
+  <h1>Edit Current Payment</h1>
+ <div class="formdiv" *ngIf=currentPayment>
+      <form action="payments" method="PUT">
+
+          <mat-form-field class="example-full-width">
+              <mat-label>Deposit Amount</mat-label>
+              <input matInput id="depositamt" [(ngModel)]="currentPayment.depositamt" name="depositamt">
+          </mat-form-field><br>
+          <mat-form-field class="example-full-width">
+              <mat-label>Start Date</mat-label>
+              <input matInput type="date" id="startdate" [(ngModel)]="currentPayment.startdate" name="startdate">
+          </mat-form-field><br>
+          <mat-form-field class="example-full-width">
+             <mat-label>Deposit Frequency</mat-label>
+             <mat-select id="depositfreq" [(ngModel)]="currentPayment.depositfreq" name="depositfreq">
+                <mat-option value="weekly">Weekly</mat-option>
+                <mat-option value="bi-weekly">Bi-Weekly</mat-option>
+                <mat-option value="monthly">Monthly</mat-option>
+                <mat-option value="quarterly">Quartly</mat-option>
+              </mat-select>
+           </mat-form-field><br>
+           <label for="active"> Active</label> <br>                    
+            <input [(ngModel)]="currentPayment.active" name="active" id="active" type="checkbox"><br>
+
+      </form>
+      <button mat-button style="background-color:rgb(89, 60, 194);" (click)="updatePayment()">
+        <mat-icon>account_balance_wallet</mat-icon> Save </button>
+  </div>
+</div>
+<div *ngIf=submitted class="submit">
+    <h4 style="color:rgb(89, 60, 194);width: 400px; margin:auto">Payment was successfully updated!!</h4>
+    <button mat-button style="color:rgb(89, 60, 194);" (click)="newPayment()">
+    <mat-icon>trending_up</mat-icon> Add Another Payment</button>
+    <button mat-button style="color:rgb(89, 60, 194);"  routerLink="/payments"><mat-icon>trending_up</mat-icon>Your Payments</button>
+  </div>    
+  
+  <div class="instructions">
+    <p>To Use this calculator:</p>
+      <p>please put in Initial Deposit first, </p>
+      <p>followed by expected Target Date (MM/DD/YYYY)    </p>
+    
+
+
+  </div>
+  
+  <div class="calculator">
+
+    <input type="text" class="calculator-screen" [value]="currentNumber" disabled />
+
+    <div class="calculator-keys">
+  
+      <button type="button" (click) = "getOperation('+')" class="operator" value="+">+</button>
+      <button type="button"></button>
+      <button type="button"></button>
+      <button type="button" (click) = "getOperation('/')" class="operator" value="/">/</button>
+  
+      <!-- [...] -->
+  
+      <button type="button" (click) = "getDecimal()" class="decimal" value=".">.</button>
+      <button type="button" (click) = "clear()"  class="all-clear" value="all-clear">AC</button>
+  
+      <button type="button" (click) = "getOperation('=')" class="equal-sign" value="=">=</button>
+  
+      <button type="button" (click) = "getNumber(7)" value="7">7</button>
+      <button type="button" (click) = "getNumber(8)" value="8">8</button>
+      <button type="button" (click) = "getNumber(9)" value="9">9</button>
+  
+      <button type="button" (click) = "getNumber(4)" value="4">4</button>
+      <button type="button" (click) = "getNumber(5)" value="5">5</button>
+      <button type="button" (click) = "getNumber(6)" value="6">6</button>
+  
+      <button type="button" (click) = "getNumber(1)" value="1">1</button>
+      <button type="button" (click) = "getNumber(2)" value="2">2</button>
+      <button type="button" (click) = "getNumber(3)" value="3">3</button>
+  
+      <button type="button" (click) = "getNumber(0)" value="0">0</button>
+      <!-- [...] -->
+    </div>
+  </div>
+    
+
+  
+  
+

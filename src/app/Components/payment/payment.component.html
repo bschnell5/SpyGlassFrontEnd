@@ -71,6 +71,13 @@
       </mat-cell>
     </ng-container>
 
+    <ng-container matColumnDef="plan">
+        <mat-header-cell *matHeaderCellDef> Edit Payment </mat-header-cell>
+        <mat-cell *matCellDef="let currentPayment">
+          <a routerLink="/plan"> Plan Your Saving </a>
+        </mat-cell>
+      </ng-container>
+
     </div>
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>

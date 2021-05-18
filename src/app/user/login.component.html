@@ -1,7 +1,7 @@
 <div class='container'>
     <div class="panel panel-primary">
         <div class="panel-heading">
-            {{pageTitle}}
+            <h2>Log In</h2>
         </div>
 
         <div class="panel-body">
@@ -20,7 +20,7 @@
                                    required
                                    ngModel
                                 name="userName" #userNameVar="ngModel" />
-                            <span class="help-block" *ngIf="(userNameVar.touched ||
+                            <span class="help-block" *ngIf="(userNameVar != userName || userNameVar.touched ||
                                                              userNameVar.dirty) &&
                                                              userNameVar.errors">
                             <span *ngIf="userNameVar.errors.required">

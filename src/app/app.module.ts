@@ -18,15 +18,12 @@ import { EditGoalComponent } from './Components/edit-goal/edit-goal.component';
 import { ProgressGoalComponent } from './Components/progress-goal/progress-goal.component';
 import { StarComponent } from './Components/star/star.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-<<<<<<< HEAD
 import { AddPaymentComponent } from './Components/payment/add-payment/add-payment.component';
 import { EditPaymentComponent } from './Components/payment/edit-payment/edit-payment.component';
 import { PaymentService } from './Service/payment.service';
 import { GoalService } from './Service/goal.service';
-=======
-import { PageNotFoundComponent } from './Components/home/page-not-found.component';
-import { AddPaymentComponent } from './Components/add-payment/add-payment.component';
->>>>>>> 092272b382324ce396babe8febab5f67d82d48fb
+import { PageNotFoundComponent} from './Components/home/page-not-found.component';
+import { PlanComponent } from './Components/plan/plan.component'
 
 
 @NgModule({
@@ -40,16 +37,11 @@ import { AddPaymentComponent } from './Components/add-payment/add-payment.compon
     AddGoalComponent,
     EditGoalComponent,
     ProgressGoalComponent,
-<<<<<<< HEAD
+    PageNotFoundComponent,
     StarComponent,
     AddPaymentComponent,
-    EditPaymentComponent
-=======
-    PageNotFoundComponent,
-    
-    StarComponent,
-          AddPaymentComponent
->>>>>>> 092272b382324ce396babe8febab5f67d82d48fb
+    EditPaymentComponent,
+    PlanComponent
   ],
   imports: [
     BrowserModule,

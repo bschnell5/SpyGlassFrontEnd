@@ -1,0 +1,12 @@
+.formdiv {
+    display: flexbox;
+    text-align: center;
+}
+
+
+.submit{
+    display: flex;
+    justify-content: center;
+    align-items: left;
+    flex-direction: column;
+  }

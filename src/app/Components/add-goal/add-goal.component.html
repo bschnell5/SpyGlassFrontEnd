@@ -57,28 +57,28 @@
       <form action="goals" method="POST">
           <mat-form-field class="example-full-width">
               <mat-label>Name</mat-label>
-              <input matInput id="name" [(ngModel)]="goal.name" name="name">
-          </mat-form-field><br><br>
+              <input matInput type="text" id="name" [(ngModel)]="goal.name" name="name">
+          </mat-form-field><br>
           <mat-form-field class="example-full-width">
               <mat-label>Description</mat-label>
-              <input matInput id="description" [(ngModel)]="goal.description" name="description">
-          </mat-form-field><br><br>
+              <input matInput type="text" id="description" [(ngModel)]="goal.description" name="description">
+          </mat-form-field><br>
           <mat-form-field class="example-full-width">
               <mat-label>Start Date</mat-label>
               <input matInput type="date" id="startdate" [(ngModel)]="goal.startdate" name="startdate">
-          </mat-form-field><br><br>
+          </mat-form-field><br>
           <mat-form-field class="example-full-width">
             <mat-label>Target Date</mat-label>
             <input matInput type="date" id="targetdate" [(ngModel)]="goal.targetdate" name="targetdate">
-        </mat-form-field><br><br>
+        </mat-form-field><br>
         <mat-form-field class="example-full-width">
           <mat-label>Target Dollar</mat-label>
-          <input matInput  id="targetdollar" [(ngModel)]="goal.targetdollar" name="targetdollar">
-        </mat-form-field><br><br>
+          <input matInput type="number" id="targetdollar" [(ngModel)]="goal.targetdollar" name="targetdollar">
+        </mat-form-field><br>
         <mat-form-field class="example-full-width">
         <mat-label>Current Savings</mat-label>
-          <input matInput  id="currentsaving" [(ngModel)]="goal.currentsaving" name="currentsaving">
-        </mat-form-field><br><br>
+          <input matInput type="number" id="currentsaving" [(ngModel)]="goal.currentsaving" name="currentsaving" >
+        </mat-form-field><br>
 
       </form>
       <button mat-button style="background-color:rgb(89, 60, 194);" (click)="saveGoal()">
