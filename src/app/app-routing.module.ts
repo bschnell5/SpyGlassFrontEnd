@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AddGoalComponent } from './Components/add-goal/add-goal.component';
-import { AddPaymentComponent } from './Components/add-payment/add-payment.component';
+import { AddPaymentComponent } from './Components/payment/add-payment/add-payment.component';
 import { BlogComponent } from './Components/blog/blog.component';
 import { EditGoalComponent } from './Components/edit-goal/edit-goal.component';
 import { GoalsComponent } from './Components/goals/goals.component';

@@ -23,7 +23,7 @@ export class PaymentComponent implements OnInit {
   pageSize = 3;
   pageSizes = [3, 6, 9];
 
-  displayedColumns: string[] = ['paymentid', 'depositamt', 'startdate', 'depositfreq', 'status', 'action'];
+  displayedColumns: string[] = ['paymentid',  'depositamt', 'startdate', 'depositfreq', 'status', 'action'];
   //dataSource: MatTableDataSource<payments>;
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
