@@ -1,5 +1,6 @@
 table {
-    width: 100%;
+    width: 80%;
+	margin: auto;
     margin-top: 25px;
   }
   h4 {
@@ -8,6 +9,8 @@ table {
 
 .button {
     text-align:center;
+	width: 25%;
+	margin: auto;
 }
 
 .field{
@@ -53,3 +56,11 @@ a{
 .notTrue {
 	text-decoration: line-through;
 }
+   
+.filter-container {
+	margin-left: 10%;
+	background-color: white;
+	border-radius: 5px;
+	padding: 0 15px;
+}
+

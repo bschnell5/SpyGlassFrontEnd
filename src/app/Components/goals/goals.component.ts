@@ -7,6 +7,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { GoalService } from 'src/app/Service/goal.service';
 
 
+
 export interface Goal {
   name: '';
   description: String;
@@ -52,6 +53,7 @@ export class GoalsComponent implements OnInit {
     }
 
   retrieveGoals(): void {
+    
     this.goalService.getAll()
       .subscribe(data => {
         
