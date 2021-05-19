@@ -11,6 +11,7 @@ import { AuthService } from './auth.service';
 export class LoginComponent {
     errorMessage: string;
     pageTitle = 'Log In';
+    userName = "bks";
 
     constructor(private authService: AuthService,
                 private router: Router) {
@@ -22,7 +23,7 @@ export class LoginComponent {
 
     login(loginForm: NgForm): void {
         if (loginForm && loginForm.valid) {
-            const userName = loginForm.form.value.userName;
+            const userName = "bks";
             const password = loginForm.form.value.password;
             this.authService.login(userName, password);
 
@@ -32,7 +33,7 @@ export class LoginComponent {
                 this.router.navigate(['/']);
             }
         } else {
-            this.errorMessage = 'Please enter a user name and password.';
+            this.errorMessage = 'Please enter a valid user name and password.';
         }
     }
 }

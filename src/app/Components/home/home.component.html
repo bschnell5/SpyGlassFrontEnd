@@ -1,1 +1,118 @@
-<p>home works!</p>
+<div class="main-container">
+    <div class="nav-container" style="background-color: rgba(0, 0, 0, 0.623);">
+        <div style="text-align: center;">
+            <a class="navbar-brand" style="color: white;">Welcome to Runtime terror</a>
+        </div>
+        
+        <!-- <div style="padding-bottom: 5px;">
+            <button class="goals-button" type="button" routerLink="goals">Goals</button>
+        </div> -->
+    </div>
+<ngb-carousel class="carousel-container"
+        [showNavigationArrows]="true" 
+        [showNavigationIndicators]="true"
+        interval="2500"
+        [keyboard]="true"
+        [pauseOnHover]="true"
+        [wrap]="true">
+    
+        [activeId]="'sliderOne'"
+
+        <ng-template ngbSlide id="sliderOne">
+            <div class="picsum-img-wrapper">
+                <figure>
+                    <img src="../../assets/istockphoto-1026205392-612x612.jpg" >
+                    <figcaption>
+                        <h2>House</h2>
+                        <p>single Family House</p>
+                    </figcaption>
+                </figure>
+            </div>
+        </ng-template>
+
+        <ng-template ngbSlide id="sliderTwo">
+        <div class="picsum-img-wrapper">
+            <figure>
+                <img src="../../assets/il_340x270.1452170818_fmjz.jpg">
+                <figcaption>
+                    <h2>Paris</h2>
+                    <p>Eifel tower in Lights</p>
+                </figcaption>
+            </figure>
+        </div>
+    </ng-template>
+    <ng-template ngbSlide id="sliderThree">
+        <div class="picsum-img-wrapper">
+            <figure>
+                <img src="../../assets/photo-1580587771525-78b9dba3b914.jpg">
+                <figcaption>
+                    <h2>House</h2>
+                    <p>Villa</p>
+                </figcaption>
+            </figure>
+        </div>
+    </ng-template>
+    <ng-template ngbSlide id="sliderFour">
+        <div class="picsum-img-wrapper">
+            <figure>
+                <img src="../../assets/il_1140xN.566199323_rw1x.jpg">
+                <figcaption>
+                    <h2>Paris</h2>
+                    <p>Eifel tower at night</p>
+                </figcaption>
+            </figure>            
+        </div>
+    </ng-template>
+
+    <ng-template ngbSlide id="sliderFive">
+        <div class="picsum-img-wrapper">
+            <figure>
+                <img src="../../assets/960x0.jpg">
+                <figcaption>
+                    <h2>Cars</h2>
+                    <p>coolest car in 2020</p>
+                </figcaption>
+            </figure>
+        </div>
+    </ng-template>
+
+    <ng-template ngbSlide id="sliderSix">
+        <div class="picsum-img-wrapper">
+            <figure>
+                <img src="../../assets/all inclusive-hero (1).jpg" >
+                <figcaption>
+                    <h2>Vacation</h2>
+                    <p>Beach</p>
+                </figcaption>
+            </figure>
+        </div>
+    </ng-template>
+
+    <ng-template ngbSlide id="sliderSeven">
+        <div class="picsum-img-wrapper">
+            <figure>
+                <img src="../../assets/retirement-sign-3.jpg">
+                <figcaption>
+                    <h2>Retirement</h2>
+                    <p>Happy Retirement</p>
+                </figcaption>
+            </figure>
+        </div>
+    </ng-template>
+
+    <ng-template ngbSlide id="sliderEight">
+        <div class="picsum-img-wrapper">
+            <figure>
+                <img src="../../assets/usc90bmc682a021001.png">
+                <figcaption>
+                    <h2>Cars</h2>
+                    <p>BMW Convertible</p>
+                </figcaption>
+            </figure>           
+        </div>
+    </ng-template>
+
+</ngb-carousel>
+
+</div>
+

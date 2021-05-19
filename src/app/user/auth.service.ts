@@ -16,7 +16,7 @@ export class AuthService {
     login(userName: string, password: string): void {
         this.currentUser = {
             id: 2,
-            userName: userName,
+            userName: "bks",
             isAdmin: false
         };
     }

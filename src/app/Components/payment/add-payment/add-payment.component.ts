@@ -1,8 +1,9 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { PaymentService } from 'src/app/Service/payment.service';
 import { GoalService } from 'src/app/Service/goal.service';
-import { Goals } from '../../goals/goals.component';
+// import { Goals } from '../../goals/goals.component';
 import { switchMap, tap } from "rxjs/operators";
+import { Goal } from '../../goals/goals.component';
 // import { Goal } from 'src/app/Models/goal';
 
 @Component({
@@ -12,7 +13,14 @@ import { switchMap, tap } from "rxjs/operators";
 })
 export class AddPaymentComponent implements OnInit {
 
-  goals: Goals[] = [];
+  plan = false;
+  monthlyPay: number;
+  today = Date.now();
+  targetDatee: Date;
+  startAmt: number;
+  dreamAmt: number;
+
+  goals: Goal[] = [];
 
   payment = {
     depositamt: null,
@@ -139,5 +147,24 @@ export class AddPaymentComponent implements OnInit {
     this.valueChange.emit(calculatePayment);
   }  
 
+  calculatePay(): void {
+    this.plan = !this.plan;
+    console.log("Creating plan");
+    var m2 = new Date(this.targetDatee).getMonth();
+    console.log(this.today);
+    console.log(this.targetDatee);
+    var diff = ((m2) - new Date().getMonth());
+    console.log(diff);
+  
+
+    this.monthlyPay = ((this.dreamAmt) / (diff));
+
+    // this.monthlyPay = (this.dreamAmt * 150) / (diff / this.monthlyTime);
+    console.log(Number(this.monthlyPay));
+  }
+
+  resetPlan(): void{
+    this.plan = null;
+  }
 }
 

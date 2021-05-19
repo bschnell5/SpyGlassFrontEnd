@@ -8,60 +8,113 @@ import { PaymentService } from 'src/app/Service/payment.service';
   styleUrls: ['./edit-payment.component.scss']
 })
 export class EditPaymentComponent implements OnInit {
-
   currentPayment = null;
-  message = '';
+  msg = '';
+  submitted = false;
+  monthlyPay: number;
+  today = Date.now();
+  targetDatee: Date;
+  startAmt: number;
+  dreamAmt: number;
+  plan = false;
 
-  constructor(private paymentService: PaymentService,
-              private route: ActivatedRoute,
-              private router: Router) { }
+
+  constructor(
+    private paymentService: PaymentService,
+    private route: ActivatedRoute,
+    private router: Router
+  ) {  }
+
 
   ngOnInit(): void {
-    this.message = '';
+    this.msg = '';
     this.getPayment(this.route.snapshot.paramMap.get('id'));
+
   }
 
-  getPayment(id): void {
-    this.paymentService.get(id).subscribe(data => {
-      console.log("getPayment", data);
-      this.currentPayment = data;
-      console.log("currentPayment", this.currentPayment)
-    },
-    error => {
-      console.log(error);
-    })
+  getPayment(paymentid): void {
+    this.paymentService.get(paymentid)
+    .subscribe(
+      data => {
+        this.currentPayment = data;
+        console.log(data);
+      },
+      error => {
+        console.log(error)
+      });
   }
 
   updatePayment(): void {
     this.paymentService.update(this.currentPayment.paymentid, this.currentPayment)
-      .subscribe(response => {
-        console.log("response", response); 
-        this.message = 'The payment was updated successfully!';
+    .subscribe(
+      response => {
+        this.submitted = true;
+        console.log(response);
+        this.msg = 'The payment has been updated successfully!';
+        console.log(this.msg);
+       
+        
       },
       error => {
         console.log(error);
-      });
+      }
+    );
   }
 
   updateActive(status): void {
+    this.submitted = false;
     const data = {
-      paymentid: this.currentPayment.paymentid,
-      goal: this.currentPayment.goal,
-      user: this.currentPayment.user,
       depositamt: this.currentPayment.depositamt,
       startdate: this.currentPayment.startdate,
       depositfreq: this.currentPayment.depositfreq,
       active: status
-    };
-    
-    this.paymentService.update(this.currentPayment.paymentid, data)
-      .subscribe(response => {
-        console.log(response);
-        this.currentPayment.active = status;
-      },
-      error => {
-        console.log(error);
-      });
     }
+
+    this.paymentService.update(this.currentPayment.id, data)
+      .subscribe(
+        response => {
+          this.currentPayment.active = status;
+          this.submitted = true;
+          console.log(response);
+        },
+        error => {
+          console.log(error)
+        }
+      );
+  }
+
+  deletePayment(): void {
+    this.paymentService.delete(this.currentPayment.employeeid)
+      .subscribe (
+        response => {
+          console.log(response);
+          this.router.navigate(['/payments']);
+        },
+        error => {
+          console.log(error);
+        }
+      );
+  }
+
+  calculatePay(): void {
+    this.plan = !this.plan;
+    console.log("Creating plan");
+    var m2 = new Date(this.targetDatee).getMonth();
+    console.log(this.today);
+    console.log(this.targetDatee);
+    var diff = ((m2) - new Date().getMonth());
+    console.log(diff);
+  
+
+    this.monthlyPay = ((this.dreamAmt) / (diff));
+
+    // this.monthlyPay = (this.dreamAmt * 150) / (diff / this.monthlyTime);
+    console.log(Number(this.monthlyPay));
+  }
+
+  resetPlan(): void{
+    this.plan = null;
+  }
+
 
 }

@@ -2,14 +2,14 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
-const baseURL = 'http://localhost:8080/bks/payments';
+const baseURL = 'http://localhost:9081/bks/payments';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PaymentService {
   
-
+  
   constructor(private http: HttpClient) { }
 
   getAll(): Observable<any> {

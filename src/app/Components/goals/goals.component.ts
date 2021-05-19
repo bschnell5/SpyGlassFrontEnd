@@ -1,15 +1,17 @@
+import { DatePipe } from '@angular/common';
 import { Component, Input, OnInit, ViewChild } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { GoalService } from 'src/app/Service/goal.service';
 
 
-export interface Goals {
-  name: string;
+export interface Goal {
+  name: '';
   description: String;
+  targetdate: Date;
   currentsaving: number;
-
 }
 
 
@@ -20,8 +22,8 @@ export interface Goals {
 })
 export class GoalsComponent implements OnInit {
 
-  goals: Goals[] = [];
-  panelOpenState: boolean = false;
+  goals: Goal [] = [];
+  dataSource: MatTableDataSource<Goal>;
   currentGoal = null;
   currentIndex = -1;
   active = null;
@@ -33,7 +35,7 @@ export class GoalsComponent implements OnInit {
   pageSizes = [3, 6, 9];
 
   displayedColumns: string[] = ['goalid', 'name', 'description', 'startDate', 'targetDate', 'currentsaving', 'targetdollar', 'edit', 'progress', 'payment'];
-  dataSource: MatTableDataSource<Goals>;
+
   
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
@@ -45,22 +47,17 @@ export class GoalsComponent implements OnInit {
     console.log("goals component", this.goals);
     }
 
-  
-  applyFilter(filterValue: string) {
-    this.dataSource.filter = filterValue.trim().toLowerCase();
-
-    if (this.dataSource.paginator) {
-      this.dataSource.paginator.firstPage();
+    applyFilter(event: Event) {
+      const filterValue = (event.target as HTMLInputElement).value;
+      this.dataSource.filter = filterValue.trim().toLowerCase();
     }
-    this.dataSource = new MatTableDataSource<Goals>();
-    this.dataSource.paginator = this.paginator;
-  }
 
   retrieveGoals(): void {
     this.goalService.getAll()
       .subscribe(data => {
         console.log("goals comp data", data);
         this.goals = data;
+        this.dataSource = new MatTableDataSource(this.goals);
       },
       error => {
         console.log(error);
