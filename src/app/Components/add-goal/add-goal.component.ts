@@ -20,10 +20,12 @@ export class AddGoalComponent implements OnInit {
     active: true,
   };
   submitted = false;
+  minDate = new Date;
 
   constructor(private goalService: GoalService) { }
 
   ngOnInit(): void {
+    this.minDate = new Date();
   }
 
   saveGoal(): void {

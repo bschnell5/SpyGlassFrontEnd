@@ -52,7 +52,4 @@ export class ProgressGoalComponent implements OnInit {
     console.log(diff);  
   }
   
-  // calculatePercentage(current, total){
-  //     return Number(current / total) * 100 ;
-  //   }
 }

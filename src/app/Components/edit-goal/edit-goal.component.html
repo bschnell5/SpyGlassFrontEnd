@@ -1,7 +1,7 @@
 <div class="goal-edit-container" style="width: 400px; margin: auto;">
 
+<h4>Your Goal</h4>
 <div *ngIf="currentGoal" class="edit-form">
-      <h4>Your Goal</h4>
       <form>
         <div class="form-group">
             <label for="goalid">Goal #</label>
@@ -39,22 +39,24 @@
           <div class="form-group">
             <label for="startDate">Start Date</label>
             <input
+            [min]="minDate"
               type="date"
               class="form-control"
               id="startDate"
               [(ngModel)]="currentGoal.startdate"
-              
+              [matDatepicker]="picker"
               name="startDate"
             />
           </div>
           <div class="form-group">
             <label for="targetDate">End Date</label>
             <input
+            [min]="minDate"
               type="date"
               class="form-control"
               id="targetDate"
               [(ngModel)]="currentGoal.targetdate"
-              
+              [matDatepicker]="picker"
               name="endDate"
             />
           </div>
@@ -68,16 +70,20 @@
               name="targetDollar"
             />
           </div>
+          <div *ngIf="currentGoal.targetdollar < 0">
+            <p style="color: red"><strong>Cannot have a negative amount! </strong></p>
+          </div>
   
         <div>
           <label for="active"> Active</label> <br>                    
           <input [(ngModel)]="currentGoal.active" name="active" id="active" type="checkbox"><br>
         </div>
+        <div class="button">
+          <a mat-button style= "background-color: lightblue;" (click)="updateGoal()" > Save Update</a>
+        </div>
     </form>
 
-      <div class="button">
-        <a mat-button style= "background-color: lightblue;" (click)="updateGoal()" > Save Update</a>
-      </div>
+
 
 
     <div *ngIf="!currentGoal">
