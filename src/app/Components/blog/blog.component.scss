@@ -4,3 +4,21 @@
     grid-gap: 15px;
 
 }
+h2 {
+    font-size: large;
+}
+header {
+    background-color: rgba($color: #a3a3a3, $alpha: .95);
+    text-align: center;
+}
+
+hr {
+    border: 5px;
+}
+
+.container > .card img {
+    max-width: 40%;
+    margin: auto;
+    padding: 10px;
+    
+}

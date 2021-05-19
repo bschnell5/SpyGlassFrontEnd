@@ -7,6 +7,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { GoalService } from 'src/app/Service/goal.service';
 
 
+
 export interface Goal {
   name: '';
   description: String;
@@ -53,10 +54,20 @@ export class GoalsComponent implements OnInit {
     }
 
   retrieveGoals(): void {
+    
     this.goalService.getAll()
       .subscribe(data => {
         console.log("goals comp data", data);
-        this.goals = data;
+        // filter the data to include only 'active' goals
+        let filteredData = [];
+        data.forEach(goal => {
+          if(goal.active === true) {
+            filteredData.push(goal);
+          }
+        });
+
+        this.goals = filteredData;
+        
         this.dataSource = new MatTableDataSource(this.goals);
       },
       error => {

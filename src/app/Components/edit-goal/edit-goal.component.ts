@@ -37,6 +37,7 @@ export class EditGoalComponent implements OnInit {
       .subscribe(response => {
         console.log("response", response); 
         this.message = 'The goal was updated successfully!';
+        this.router.navigate(['/goals']);
       },
       error => {
         console.log(error);

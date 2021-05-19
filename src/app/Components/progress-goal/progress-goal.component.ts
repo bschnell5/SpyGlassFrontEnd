@@ -14,18 +14,18 @@ export class ProgressGoalComponent implements OnInit {
   today = Date.now();
   currentGoal = null;
 
-  get targetdate(): Date{
-    return this.goalService.targetdate;
-  }
-  set targetDate(value: Date){
-    this.goalService.targetdate = value;
-  }
+  // get targetdate(): Date{
+  //   return this.goalService.targetdate;
+  // }
+  // set targetDate(value: Date){
+  //   this.goalService.targetdate = value;
+  // }
   
   constructor(private goalService: GoalService) { }
 
   ngOnInit(): void {
     this.retrieveGoals();
-    this.displayTimeRemaining();
+    // this.displayTimeRemaining();
   }
 
 
@@ -45,12 +45,12 @@ export class ProgressGoalComponent implements OnInit {
     
   }
 
-  displayTimeRemaining(): void{
-    console.log(this.goalService.targetdate);
-    var m2 = new Date(this.goalService.targetdate).getMonth();
-    var diff = ((m2) - new Date().getMonth());
-    console.log(diff);  
-  }
+  // displayTimeRemaining(): void{
+  //   console.log(this.goalService.targetdate);
+  //   var m2 = new Date(this.goalService.targetdate).getMonth();
+  //   var diff = ((m2) - new Date().getMonth());
+  //   console.log(diff);  
+  // }
   
   // calculatePercentage(current, total){
   //     return Number(current / total) * 100 ;
