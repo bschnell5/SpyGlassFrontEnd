@@ -1,4 +1,4 @@
-<div class="goals-list-container">
+<div class="goals-list-container" style="width:80%; margin:auto;">
     <h1>All Goals</h1>
     <div class="add">
         <button mat-raised-button color="primary" routerLink="/goals/add">New Goal</button>
@@ -16,7 +16,8 @@
 
                 <mat-progress-bar mode="determinate" value="{{displayProgress(goal.currentsaving, goal.targetdollar)}}"></mat-progress-bar>
                 <br>
-                <span style="float: left;">Saved: {{goal.currentsaving | currency:'USD'}} / {{goal.targetdollar | currency:'USD'}}</span>
+                <span style="float: left; color:grey">Saved: {{goal.currentsaving | currency:'USD'}} / {{goal.targetdollar | currency:'USD'}}</span>
+                <span style="float: right; color:grey">Progress: {{ goal.currentsaving/goal.targetdollar | percent }}</span>
                 <br>
             </mat-card-content>
             <mat-card-actions>

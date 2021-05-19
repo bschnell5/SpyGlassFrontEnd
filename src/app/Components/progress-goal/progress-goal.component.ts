@@ -10,6 +10,9 @@ import { GoalService } from 'src/app/Service/goal.service';
 export class ProgressGoalComponent implements OnInit {
   goals: Goal[] = [];
 
+  // calc = this.calculatePercentage;
+  
+
   constructor(private goalService: GoalService) { }
 
   ngOnInit(): void {
@@ -29,5 +32,8 @@ export class ProgressGoalComponent implements OnInit {
   private displayProgress(current, total){
     return Number(current / total) * 100 ;
   }
-
+  
+  // calculatePercentage(current, total){
+  //     return Number(current / total) * 100 ;
+  //   }
 }

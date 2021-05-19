@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { PaymentService } from 'src/app/Service/payment.service';
 import { GoalService } from 'src/app/Service/goal.service';
 import { Goals } from '../../goals/goals.component';
+import { switchMap, tap } from "rxjs/operators";
 // import { Goal } from 'src/app/Models/goal';
 
 @Component({
@@ -28,11 +29,13 @@ export class AddPaymentComponent implements OnInit {
       targetdollar: null,
       active: true
     }
-  
   };
+  updateSaving: number = null;
   
 
   submitted = false;
+
+  @Output() valueChange = new EventEmitter<any>();
 
   constructor(private paymentService: PaymentService, private goalService: GoalService) { }
 
@@ -48,23 +51,57 @@ export class AddPaymentComponent implements OnInit {
       depositfreq: this.payment.depositfreq,
       active: this.payment.active,
       goal: this.payment.goal
+      
     };
-  
-
+    // this.updateSaving = this.payment.goal.currentsaving + this.payment.depositamt;
+    // this.addToCurrentsavings();
+    // console.log("event - addtocurrentsavings", this.addToCurrentsavings());
+    
     console.log("payment data", data);
-
     this.paymentService.create(data)
       .subscribe(
         response => {
-          console.log(response);
+          console.log("sponse", response);
           this.submitted = true;
+          // this.payment.goal.currentsaving = this.updateSaving;
+          
+          // data.goal.currentsaving = data.depositamt + data.goal.currentsaving;
         },
         error => {
           console.log(error);
         });
 
-        this.newPayment();
+    // this.goalService.update(this.payment.goal.goalid, this.updateSaving)
+    //     .subscribe(
+    //       response => {
+    //         console.log(response);
+    //         this.payment.goal.currentsaving = this.updateSaving;
+    //       },
+    //       error => {
+    //         console.log(error);
+    //     });
+
+    this.newPayment();    
+
+    // const createPayment = this.paymentService.create(data);
+    // createPayment.pipe(
+    //   tap(response => {
+    //     console.log(response);
+    //     this.addToCurrentsavings();
+    //   })
+    // ).subscribe(
+    //   response => {
+    //     console.log("sponse", response);
+    //     this.submitted = true;
+    //   },
+    //   error => {
+    //     console.log(error);
+    //   }
+    // );
+    
   }
+
+  
 
   newPayment(): void {
     this.submitted = false;
@@ -96,4 +133,11 @@ export class AddPaymentComponent implements OnInit {
         console.log(error);
       });
   }
+
+  valueChanged() {
+    let calculatePayment = this.payment.goal.currentsaving + this.payment.depositamt;
+    this.valueChange.emit(calculatePayment);
+  }  
+
 }
+
