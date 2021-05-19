@@ -12,6 +12,8 @@ export class EditGoalComponent implements OnInit {
   currentGoal = null;
   message = '';
 
+  minDate = new Date;
+
   constructor(private goalService: GoalService,
               private route: ActivatedRoute,
               private router: Router) { }
@@ -19,6 +21,7 @@ export class EditGoalComponent implements OnInit {
   ngOnInit(): void {
     this.message = '';
     this.getGoal(this.route.snapshot.paramMap.get('id'));
+    this.minDate = new Date();
   }
 
   getGoal(id): void {

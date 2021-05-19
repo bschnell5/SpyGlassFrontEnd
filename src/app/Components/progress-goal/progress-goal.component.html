@@ -10,14 +10,13 @@
                 <mat-card-title>{{goal.name}}</mat-card-title>
                 <mat-card-subtitle>Start Date: {{goal.startdate | date}}</mat-card-subtitle>
                 <mat-card-subtitle>Target: {{goal.targetdate | date}}</mat-card-subtitle>
-                <mat-card-subtitle value="{{displayProgress(goal.currentsaving, goal.targetdollar)}}">Percent Acheived:{{goal.currentsaving}} / {{goal.targetdollar}}</mat-card-subtitle>
                 
             </mat-card-header>
             <mat-card-content>
 
                 <mat-progress-bar mode="determinate" value="{{displayProgress(goal.currentsaving, goal.targetdollar)}}"></mat-progress-bar>
                 <br>
-                <span style="float: left; color:grey">Saved: {{goal.currentsaving | currency:'USD'}} / {{goal.targetdollar | currency:'USD'}}</span>
+                <!-- <span style="float: left; color:grey">Saved: {{goal.currentsaving | currency:'USD'}} / {{goal.targetdollar | currency:'USD'}}</span> -->
                 <span style="float: right; color:grey">Progress: {{ goal.currentsaving/goal.targetdollar | percent }}</span>
                 <br>
             </mat-card-content>

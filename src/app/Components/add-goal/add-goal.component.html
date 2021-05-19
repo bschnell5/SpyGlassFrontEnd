@@ -52,8 +52,8 @@
 
   
 <h1 style="text-align:center">Add Your New Goal</h1>
-   
-<div class="formdiv" *ngIf=!submitted>
+<div class="form">   
+ <div class="formdiv" *ngIf=!submitted>
       <form action="goals" method="POST">
           <mat-form-field hintLabel="Max 15 characters" class="example-full-width">
               <mat-label>Name</mat-label>
@@ -66,30 +66,37 @@
           </mat-form-field><br>
           <mat-form-field class="example-full-width">
               <mat-label>Start Date</mat-label>
-              <input matInput type="date" id="startdate" [(ngModel)]="goal.startdate" name="startdate">
+              <input matInput [min]="minDate" type="date" id="startdate" [(ngModel)]="goal.startdate" [matDatepicker]="picker" name="startdate">
           </mat-form-field><br>
           <mat-form-field class="example-full-width">
             <mat-label>Target Date</mat-label>
-            <input matInput type="date" id="targetdate" [(ngModel)]="goal.targetdate" name="targetdate">
+            <input matInput [min]="minDate" type="date" id="targetdate" [(ngModel)]="goal.targetdate" [matDatepicker]="picker" name="targetdate">
         </mat-form-field><br>
         <mat-form-field class="example-full-width">
           <mat-label>Target Dollar</mat-label>
           <input matInput type="number" id="targetdollar" [(ngModel)]="goal.targetdollar" name="targetdollar">
         </mat-form-field><br>
+
+        <div *ngIf="goal.targetdollar < 0">
+          <p style="color: red"><strong>Cannot have a negative amount! </strong></p>
+        </div>
         <mat-form-field class="example-full-width">
         <mat-label>Current Savings</mat-label>
           <input matInput type="number" id="currentsaving" [(ngModel)]="goal.currentsaving" name="currentsaving" >
         </mat-form-field><br>
-
+        <div *ngIf="goal.currentsaving < 0">
+          <p style="color: red"><strong>Cannot have a negative amount! </strong></p>
+        </div>
       </form>
       <button mat-button style="background-color:rgb(89, 60, 194);" (click)="saveGoal()">
         <mat-icon>account_balance_wallet</mat-icon> Save </button>
-</div>
+ </div>
 
-<div *ngIf=submitted class="submit">
+ <div *ngIf=submitted class="submit">
   <h4 style="color:rgb(60, 194, 78);width: 400px; margin:auto">Goal was added successfully!!</h4>
   <button mat-button style="color:rgb(89, 60, 194);" (click)="newGoal()">
   <mat-icon>trending_up</mat-icon> Add Another Goal</button>
   <button mat-button style="color:rgb(194, 60, 143);"  routerLink="/goals"><mat-icon>trending_up</mat-icon>Your Goals</button>
-</div>
+ </div>
+</div> 
     

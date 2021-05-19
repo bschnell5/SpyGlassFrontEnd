@@ -1,9 +1,18 @@
   .formdiv {
-    display: flexbox;
     float: left;
-    margin-left: 205px;
+    margin-left: 100px;
+    background-color: lightgray;
+    width: 30%;
+    text-align:center;
 }
 
+.formdiv {
+    float: left;
+    margin-left: 100px;
+    background-color: lightgray;
+    width: 30%;
+    text-align:center;
+}
 
 .submit{
     display: flex;
@@ -18,7 +27,8 @@ h1 {
 
 .plan{
     float: right;
-    padding-right: 200px;
-    background-color: lightblue;
+    padding-right: 280px;
+    background-color: lightgray;   
+    width: 30%; 
     
 }

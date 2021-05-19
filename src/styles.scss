@@ -13,6 +13,24 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;
 /* Importing Bootstrap SCSS file. */
 @import '~bootstrap/scss/bootstrap';
 
+<<<<<<< HEAD
+h1{
+    color: antiquewhite;
+    text-align: center;
+}
+h4{
+    color: antiquewhite;
+    text-align: center;
+}
+h6{
+  
+    text-align: center;
+}
+h5{
+    color: antiquewhite;
+    text-align: center;
+}
+=======
 
 h1{
     color: antiquewhite;
@@ -26,3 +44,4 @@ h6{
 h5{
     color: antiquewhite;
 }
+>>>>>>> ddd8e52fbf3d87b523a6b95fa440beb985bde593

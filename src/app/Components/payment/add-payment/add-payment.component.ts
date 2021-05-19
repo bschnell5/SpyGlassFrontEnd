@@ -12,7 +12,7 @@ import { Goal } from '../../goals/goals.component';
   styleUrls: ['./add-payment.component.scss']
 })
 export class AddPaymentComponent implements OnInit {
-
+  minDate = new Date;
   plan = false;
   monthlyPay: number;
   today = Date.now();
@@ -50,6 +50,7 @@ export class AddPaymentComponent implements OnInit {
   ngOnInit(): void {
     this.retrieveGoals();
     console.log("goals array", this.goals);
+    this.minDate = new Date();
   }
 
   savePayment(): void {

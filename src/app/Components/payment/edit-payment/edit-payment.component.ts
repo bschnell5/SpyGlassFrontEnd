@@ -17,7 +17,7 @@ export class EditPaymentComponent implements OnInit {
   startAmt: number;
   dreamAmt: number;
   plan = false;
-
+  minDate = new Date;
 
   constructor(
     private paymentService: PaymentService,
@@ -29,6 +29,7 @@ export class EditPaymentComponent implements OnInit {
   ngOnInit(): void {
     this.msg = '';
     this.getPayment(this.route.snapshot.paramMap.get('id'));
+    this.minDate = new Date();
 
   }
 

@@ -35,7 +35,7 @@ export class GoalsComponent implements OnInit {
   pageSize = 3;
   pageSizes = [3, 6, 9];
 
-  displayedColumns: string[] = ['goalid', 'name', 'description', 'startDate', 'targetDate', 'currentsaving', 'targetdollar', 'edit', 'progress', 'payment'];
+  displayedColumns: string[] = ['goalid', 'name', 'description', 'startDate', 'targetDate', 'currentSaving', 'targetdollar', 'edit', 'progress', 'payment'];
 
   
   @ViewChild(MatPaginator) paginator: MatPaginator;
@@ -45,7 +45,6 @@ export class GoalsComponent implements OnInit {
 
   ngOnInit(): void {
     this.retrieveGoals();
-    console.log("goals component", this.goals);
     }
 
     applyFilter(event: Event) {
@@ -57,34 +56,20 @@ export class GoalsComponent implements OnInit {
     
     this.goalService.getAll()
       .subscribe(data => {
-        console.log("goals comp data", data);
-        // filter the data to include only 'active' goals
-        let filteredData = [];
-        data.forEach(goal => {
-          if(goal.active === true) {
-            filteredData.push(goal);
-          }
-        });
-
-        this.goals = filteredData;
         
+        console.log(data);
+        this.goals = data;
         this.dataSource = new MatTableDataSource(this.goals);
       },
       error => {
         console.log(error);
       });
-    console.log("post retrieval", this.goals);
   }
 
   refreshList(): void {
     this.retrieveGoals();
     this.currentGoal = null;
     this.currentIndex = -1;
-  }
-
-  onPaymentEvent(calculatePayment): void {
-    console.log("calculate payment", calculatePayment);
-    this.currentGoal.currentsaving = calculatePayment;
   }
 
   setActiveGoal(goal, index): void {
