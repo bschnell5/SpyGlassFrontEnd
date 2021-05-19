@@ -3,7 +3,16 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { PaymentService } from 'src/app/Service/payment.service';
 import { GoalService } from 'src/app/Service/goal.service';
+import { MatTableDataSource } from '@angular/material/table';
 
+
+export interface Payment {
+  depositamt: number;
+  startdate: Date;
+  depositfreq: Date; 
+  active: boolean;
+
+}
 
 @Component({
   selector: 'app-payment',
@@ -17,13 +26,14 @@ export class PaymentComponent implements OnInit {
   currentPayment = null;
   currentIndex = -1;
   active = null;
+  dataSource: MatTableDataSource<Payment>;
 
   page = 1;
   count = 0;
   pageSize = 3;
   pageSizes = [3, 6, 9];
 
-  displayedColumns: string[] = ['paymentid', 'depositamt', 'startdate', 'depositfreq', 'status', 'action', 'plan'];
+  displayedColumns: string[] = ['paymentid', 'depositamt', 'startdate', 'depositfreq', 'status', 'action'];
   //dataSource: MatTableDataSource<payments>;
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
@@ -35,11 +45,18 @@ export class PaymentComponent implements OnInit {
     this.retrievePayments();
   }
 
+  applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+  }
+
   retrievePayments(): void {
     this.paymentService.getAll()
       .subscribe(data => {
         console.log(data);
         this.payments = data;
+        this.dataSource = new MatTableDataSource(this.payments);
+
       },
       error => {
         console.log(error);

@@ -20,8 +20,6 @@ import { StarComponent } from './Components/star/star.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AddPaymentComponent } from './Components/payment/add-payment/add-payment.component';
 import { EditPaymentComponent } from './Components/payment/edit-payment/edit-payment.component';
-import { PaymentService } from './Service/payment.service';
-import { GoalService } from './Service/goal.service';
 import { PageNotFoundComponent} from './Components/home/page-not-found.component';
 
 

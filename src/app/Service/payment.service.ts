@@ -8,15 +8,8 @@ const baseURL = 'http://localhost:9081/bks/payments';
   providedIn: 'root'
 })
 export class PaymentService {
-  startdate: Date;
-  targetdate: Date;
-  depositamt: number;
-  depositfreq: string;
-  monthlyPay: number;
-  weeklyPay: number;
-  quartlyPayment: number;
-
-
+  
+  
   constructor(private http: HttpClient) { }
 
   getAll(): Observable<any> {

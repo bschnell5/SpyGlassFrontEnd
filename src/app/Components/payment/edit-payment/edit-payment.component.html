@@ -72,7 +72,7 @@
     <label for="dreamAmt">Target Goal Amount:</label><br>
     <input type="number" placeholder="$0.00" id="dreamAmt" name="dreamAmt" [(ngModel)]="dreamAmt" value="0.00"><br>
     <label for="targetDatee">Target Date :</label><br>
-    <input type="date" id="targetDatee"><br><br>
+    <input type="date" value= "{{ targetDatee | date: 'shortDate'}}" id="targetDatee" name="targetDatee" [(ngModel)]= "targetDatee"> <br><br>
     <button type="submit" value="Submit" (click)="calculatePay()">Calculate Plan</button>
   </form> 
 </div>
@@ -84,6 +84,8 @@
       Recommended Monthly Savings: {{monthlyPay | currency:'USD'}}<br>
       Recommended Quartly Savings: {{monthlyPay * 3 | currency:'USD'}}<br>
   </P>
+
+  <a mat-button color="primary" (click)="resetPlan()" > Redo Calculation</a>
 </div>
   
  

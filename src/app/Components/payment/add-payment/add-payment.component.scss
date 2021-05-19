@@ -1,6 +1,7 @@
-.formdiv {
+  .formdiv {
     display: flexbox;
-    text-align: center;
+    float: left;
+    margin-left: 205px;
 }
 
 
@@ -10,3 +11,14 @@
     align-items: left;
     flex-direction: column;
   }
+
+h1 {
+    text-align: center;
+}
+
+.plan{
+    float: right;
+    padding-right: 200px;
+    background-color: lightblue;
+    
+}

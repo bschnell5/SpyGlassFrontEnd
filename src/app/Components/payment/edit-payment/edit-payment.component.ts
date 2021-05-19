@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { PaymentService } from 'src/app/Service/payment.service';
 
+
 @Component({
   selector: 'app-edit-payment',
   templateUrl: './edit-payment.component.html',
@@ -12,9 +13,8 @@ export class EditPaymentComponent implements OnInit {
   msg = '';
   submitted = false;
   monthlyPay: number;
-  monthlyTime:  number = 2629800000;
   today = Date.now();
-  targetDatee: number = 21340800;
+  targetDatee: Date;
   startAmt: number;
   dreamAmt: number;
   plan = false;
@@ -100,14 +100,21 @@ export class EditPaymentComponent implements OnInit {
   calculatePay(): void {
     this.plan = !this.plan;
     console.log("Creating plan");
-    console.log(this.dreamAmt);
-    console.log(this.targetDatee)
-    var diff = (Number(this.today) - (this.targetDatee));
+    var m2 = new Date(this.targetDatee).getMonth();
+    console.log(this.today);
+    console.log(this.targetDatee);
+    var diff = ((m2) - new Date().getMonth());
     console.log(diff);
-    // console.log(this.targetDatee);
-    // console.log(this.today);
-    this.monthlyPay = (this.dreamAmt * 150) / (diff / this.monthlyTime);
-    console.log(this.monthlyPay);
+  
+
+    this.monthlyPay = ((this.dreamAmt) / (diff));
+
+    // this.monthlyPay = (this.dreamAmt * 150) / (diff / this.monthlyTime);
+    console.log(Number(this.monthlyPay));
+  }
+
+  resetPlan(): void{
+    this.plan = null;
   }
 
 

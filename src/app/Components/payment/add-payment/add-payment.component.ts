@@ -11,6 +11,13 @@ import { Goal } from '../../goals/goals.component';
 })
 export class AddPaymentComponent implements OnInit {
 
+  plan = false;
+  monthlyPay: number;
+  today = Date.now();
+  targetDatee: Date;
+  startAmt: number;
+  dreamAmt: number;
+
   goals: Goal[] = [];
 
   payment = {
@@ -95,5 +102,25 @@ export class AddPaymentComponent implements OnInit {
       error => {
         console.log(error);
       });
+  }
+
+  calculatePay(): void {
+    this.plan = !this.plan;
+    console.log("Creating plan");
+    var m2 = new Date(this.targetDatee).getMonth();
+    console.log(this.today);
+    console.log(this.targetDatee);
+    var diff = ((m2) - new Date().getMonth());
+    console.log(diff);
+  
+
+    this.monthlyPay = ((this.dreamAmt) / (diff));
+
+    // this.monthlyPay = (this.dreamAmt * 150) / (diff / this.monthlyTime);
+    console.log(Number(this.monthlyPay));
+  }
+
+  resetPlan(): void{
+    this.plan = null;
   }
 }

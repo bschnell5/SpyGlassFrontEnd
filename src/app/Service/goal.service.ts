@@ -8,6 +8,7 @@ const baseURL = 'http://localhost:9081/bks/goals';
   providedIn: 'root'
 })
 export class GoalService {
+  targetdate: Date;
 
   constructor(private http: HttpClient) { }
 

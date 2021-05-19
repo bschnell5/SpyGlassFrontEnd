@@ -8,11 +8,10 @@ import { GoalService } from 'src/app/Service/goal.service';
 
 
 export interface Goal {
-  name: string;
+  name: '';
   description: String;
   targetdate: Date;
   currentsaving: number;
-
 }
 
 
@@ -25,7 +24,6 @@ export class GoalsComponent implements OnInit {
 
   goals: Goal [] = [];
   dataSource: MatTableDataSource<Goal>;
-  pipe: DatePipe;
   currentGoal = null;
   currentIndex = -1;
   active = null;
@@ -48,22 +46,18 @@ export class GoalsComponent implements OnInit {
     this.retrieveGoals();
     }
 
-  
-  applyFilter(filterValue: string) {
-    this.dataSource.filter = filterValue.trim().toLowerCase();
-
-    if (this.dataSource.paginator) {
-      this.dataSource.paginator.firstPage();
+    applyFilter(event: Event) {
+      const filterValue = (event.target as HTMLInputElement).value;
+      this.dataSource.filter = filterValue.trim().toLowerCase();
     }
-    this.dataSource = new MatTableDataSource<Goal>();
-    this.dataSource.paginator = this.paginator;
-  }
 
   retrieveGoals(): void {
     this.goalService.getAll()
       .subscribe(data => {
+        
         console.log(data);
         this.goals = data;
+        this.dataSource = new MatTableDataSource(this.goals);
       },
       error => {
         console.log(error);

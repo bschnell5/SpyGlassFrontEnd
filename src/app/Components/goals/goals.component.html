@@ -1,22 +1,19 @@
-  <h4>Goal List</h4>
-  <div class="input-group-append">
-    <button class="btn btn btn-info" type="button" (click)="activeGoals(true)"> Display Active </button>
-    <button class="btn btn btn-info" type="button" (click)="activeGoals(false)">  Display Inactive</button>
-    <button class="btn btn btn-info" type="button" (click)="refreshList()">  Display All </button>
-  </div>
+<h4>Goal List</h4>
 <div class="button">
 <a mat-button style="background-color:rgb(89, 60, 194);" [routerLink]="'/goals/add'" > Add Goal</a>
 
 </div>
   <mat-form-field>
-    <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+    <label style>Filter By:</label>
+    <mat-label>Filter</mat-label>
+    <input matInput (keyup)="applyFilter($event)" placeholder="goal" #input>
   </mat-form-field>
 
   <div class="button">
   <a mat-button color="primary" [routerLink]="'/goals/add'" > Add Goal</a>
   </div>
 
-  <table mat-table [dataSource]="goals" class="mat-elevation-z8">
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
     <!--- Note that these columns can be defined in any order.
           The actual rendered columns are set as a property on the row definition" -->
   
