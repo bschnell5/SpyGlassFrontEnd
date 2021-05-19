@@ -2,3 +2,11 @@ div.panel {
     margin: 40px 0;
     width: 700px;
 }
+
+
+.form-group {
+    background-color: lightgray;
+    width: 60%;
+    height: 100px;
+
+}
