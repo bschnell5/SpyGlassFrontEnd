@@ -5,8 +5,16 @@ div.panel {
 
 
 .form-group {
-    background-color: lightgray;
+    background-color: lightgrey;
     width: 60%;
     height: 100px;
-
+    padding: 15px;
+    
 }
+
+.btn-cancel {
+    color: red;
+    font-weight: 500;
+    padding-top: 5px;
+}
+

@@ -49,6 +49,7 @@
 
      
 
+
     
 
       
@@ -67,12 +68,10 @@
 
     <div>
     <ng-container matColumnDef="action">
-      <mat-header-cell *matHeaderCellDef> Edit Payment </mat-header-cell>
-      <mat-cell *matCellDef="let currentPayment">
-        <a routerLink="/payments/{{ currentPayment.paymentid }}"> Edit Payment </a>
-      </mat-cell>
+      <th mat-header-cell *matHeaderCellDef> Edit Payment </th>
+      <td mat-cell *matCellDef="let currentPayment">
+        <a routerLink="/payments/{{ currentPayment.paymentid }}"> Edit Payment </a></td>
     </ng-container>
-
 
     </div>
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
